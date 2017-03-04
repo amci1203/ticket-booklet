@@ -14,6 +14,7 @@ export default function Inject (callback, nested) {
             .done(data => $(this).html(data))
             .fail(err => {})
             .always(() => {
+                fetchNestedFiles( $(this) )
                 viewsInjected++;
                 if (viewsInjected == numViews) {
                     setTimeout(callback, 200)
@@ -21,6 +22,13 @@ export default function Inject (callback, nested) {
             })
         })
     }
+    
+    function fetchNestedFiles (partial) {
+        const root   = partial.attr('data-view'),
+              nested = partial.find('._partial');
+        
+    }
+    
     return (() => {
         if (numViews > 0) fetchFiles()
     })()

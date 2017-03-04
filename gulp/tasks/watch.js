@@ -7,7 +7,7 @@ gulp.task('default', function () {
 })
 
 gulp.task('cssInject', ['css'], function () {
-    return gulp.src('./seabreeze/styles.css')
+    return gulp.src('./app/styles.css')
     .pipe(browserSync.stream());
 });
 
@@ -19,16 +19,16 @@ gulp.task('watch', function () {
     browserSync.init({
         notify: false,
         server: {
-            baseDir: 'seabreeze'
+            baseDir: 'app'
         }
     });
-    watch('./seabreeze/assets/css/**/*.css', function () {
+    watch('./app/assets/css/**/*.css', function () {
         gulp.start('cssInject');
     });
-    watch('./seabreeze/assets/js/**/*.js', function () {
+    watch('./app/assets/js/**/*.js', function () {
         gulp.start('scriptsRefresh');
     })
-    watch(['./seabreeze/index.html', './seabreeze/views/**/*.html'], function () {
+    watch(['./app/index.html', './app/views/**/*.html'], function () {
         browserSync.reload();
     });
 });

@@ -21,17 +21,17 @@ gulp.task('cleanDist', ['icons'], function () {
 
 gulp.task('copyGeneralFiles', ['cleanDist'], function () {
     return gulp.src([
-        './seabreeze/**/*',
-        '!./seabreeze/index.html',
-        '!./seabreeze/assets/{js,css,images}/**',
-        '!./seabreeze/temp',
-        '!./seabreeze/temp/**',
+        './app/**/*',
+        '!./app/index.html',
+        '!./app/assets/{js,css,images}/**',
+        '!./app/temp',
+        '!./app/temp/**',
         ])
         .pipe(gulp.dest('./docs'))
 })
 
 gulp.task('optimizeIMGs', ['cleanDist'], function () {
-    return gulp.src(['./seabreeze/assets/images/**/*', '!./seabreeze/assets/images/**/*-i.*'])
+    return gulp.src(['./app/assets/images/**/*', '!./app/assets/images/**/*-i.*'])
     .pipe(minimizeIMG({
         pregressive: true,
         interlaced: true,
@@ -45,7 +45,7 @@ gulp.task('useminTrigger', ['cleanDist'], function () {
 })
 
 gulp.task('optimizeStaticFiles', ['css', 'scripts'], function () {
-    return gulp.src(['./seabreeze/index.html'])
+    return gulp.src(['./app/index.html'])
         .pipe(usemin({
             css: [
                 function () {

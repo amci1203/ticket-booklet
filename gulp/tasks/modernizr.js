@@ -2,7 +2,7 @@ var gulp = require('gulp'),
     modernizr = require('gulp-modernizr');
 
 gulp.task('modernizr', function () {
-    return gulp.src(['./seabreeze/assets/css/**/*.css', './seabreeze/assets/js/**/*.js'])
+    return gulp.src(['./app/assets/css/**/*.css', './app/assets/js/**/*.js'])
         .pipe(modernizr({ options: ['setClasses'] }))
-        .pipe(gulp.dest('./seabreeze/temp/scripts'))
+        .pipe(gulp.dest('./app/temp/scripts'))
 })

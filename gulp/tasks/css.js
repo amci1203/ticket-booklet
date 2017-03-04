@@ -12,7 +12,7 @@ const
 
 gulp.task('css', function () {
     console.log('---> Filtering CSS file...');
-    return gulp.src('./seabreeze/assets/css/styles.css')
+    return gulp.src('./app/assets/css/styles.css')
         .pipe(postCSS([
             postImport,
             cssVars,
@@ -28,5 +28,5 @@ gulp.task('css', function () {
             console.log(err.toString());
             this.emit('end');
         })
-        .pipe(gulp.dest('./seabreeze'));
+        .pipe(gulp.dest('./app'));
 })
