@@ -1,15 +1,17 @@
 .wrapper {
-    padding-left: $wrapper-padding;
-    padding-right: $wrapper-padding;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: calc(1200px + ($wrapper-padding * 2));
-    overflow-x: hidden;
+    display       : block;
+    padding-left  : $wrapper-padding;
+    padding-right : $wrapper-padding;
+    margin-left   : auto;
+    margin-right  : auto;
+    max-width     : calc(1200px + ($wrapper-padding * 2));
+    overflow      : visible;
+
     &--medium {
         max-width: calc(991px + ($wrapper-padding * 2));
     }
     &--narrow {
-        max-width: 470px;
+        max-width: calc(470px + ($wrapper-padding * 2));
     }
     &--b-margin {
         margin-bottom: 1rem;
@@ -23,20 +25,26 @@
             margin-bottom: 3.875rem;
         }
     }
-    &--fluid-sm {
-        padding-left: 0;
-        padding-right: 0;
-        @mixin atMedium {
-            padding-left: $wrapper-padding;
-            padding-right: $wrapper-padding;
+    &--fluid {
+        padding-left  : 0;
+        padding-right : 0;
+        &-xs {
+            @mixin atSmall {
+                padding-left  : $wrapper-padding;
+                padding-right : $wrapper-padding;
+            }
         }
-    }
-    &--fluid-md {
-        padding-left: 0;
-        padding-right: 0;
-        @mixin atLarge {
-            padding-left: $wrapper-padding;
-            padding-right: $wrapper-padding;
+        &-sm {
+            @mixin atMedium {
+                padding-left  : $wrapper-padding;
+                padding-right : $wrapper-padding;
+            }
+        }
+        &-md {
+            @mixin atLarge {
+                padding-left  : $wrapper-padding;
+                padding-right : $wrapper-padding;
+            }
         }
     }
 }

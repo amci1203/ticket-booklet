@@ -1,6 +1,17 @@
-$mainBlue: #2f5572;
-$mainOrange: #d59541;
+$mainBlue   : rgb(40, 171, 197);
+$mainYellow : rgb(253, 188, 0);
+$mainOrange : rgb(213, 149, 65);
+$navs-color : rgb(30, 35, 41);
+
 
 $wrapper-padding: 18px;
-
 $gutter-width: 65px;
+
+$navs-text       : #FFF;
+$primary-navH    : 80px;
+$contacts-navH   : 40px;
+$footer-navH     : 30px;
+$mob-navH        : 45px;
+
+$primary-navZ    : 500;
+$contacts-navZ   : 100;

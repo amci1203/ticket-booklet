@@ -6,22 +6,26 @@
 /* GLOBAL FILES END */
 /* MODULES */
 /* MULTIPLE USE BLOCKS */
-    @import 'modules/_reveal-item';
-    @import 'modules/_wrapper';
-    @import 'modules/_row';
-    @import 'modules/_page-section';
-    @import 'modules/_section-title';
-    @import 'modules/_headline';
     @import 'modules/_btn';
-    @import 'modules/_icon';
-    @import 'modules/_social-icons';
-    @import 'modules/_generic-content-container';
+    @import 'modules/_feature-item';
+    @import 'modules/_generic-content';
+    @import 'modules/_headline';
     @import 'modules/_modal';
+    @import 'modules/_page-section';
+    @import 'modules/_photo';
+    @import 'modules/_reveal-item';
+    @import 'modules/_row';
+    @import 'modules/_section-title';
+    @import 'modules/_social-icons';
+    @import 'modules/_text';
+    @import 'modules/_wrapper';
 /* MULTIPLE USE BLOCKS END */
 
 /* SINGLE USE BLOCKS */
-    @import 'modules/_header';
+    @import 'modules/_large-hero';
     @import 'modules/_primary-nav';
+    @import 'modules/_mobile-buttons';
+    @import 'modules/_contacts-nav';
     @import 'modules/_footer';
 /* SINGLE USE BLOCKS END */
 /* MODULES END */

@@ -1,16 +1,56 @@
 .footer {
-    background-color: $mainBlue;
-    color: #FFF;
-    text-align: center;
-    padding: 0.5rem 0;
+    background-color : $navs-color;
+    color            : $navs-text;
+    font-size        : 1rem;
+    text-align       : center;
+    padding          : 0.35rem 0;
+    @mixin atMedium {
+        padding: 2.15rem 0;
+    }
+    
     &__text {
         font-weight: 200;
         display: block;
         margin-bottom: 1rem;
-        @mixin atMedium {
-            display: inline;
-            margin-bottom: 0;
-            margin-right: 1.4rem;
+        @mixin smThanMedium {
+            font-size: 0.85rem;
         }
+    }
+    
+    ul {
+        @mixin smThanMedium {
+            display: none;
+        }
+        @mixin clearfix;
+        margin     : 0;
+        padding    : 0;
+        text-align : center;
+        
+        margin-bottom: 1.15rem;
+    }
+    li {
+        display      : inline-block;
+        margin       : 0;
+        list-style   : none;
+        border-right : 2px solid color($navs-color s(+ 40%));
+        &:last-child { border-right: none }
+        
+        &:nth-child(even) { a:hover  { border-bottom: 3px solid $mainBlue } }
+        &:nth-child(odd)  { a:hover  { border-bottom: 3px solid $mainYellow } }
+    }
+    a {
+        @mixin noTextDecoration;
+        transition       : background-color 0.2s ease-in; 
+        display          : block;
+        margin           : 0 0.8rem;
+        font-weight      : 100;
+        font-size        : 0.8rem;
+        height           : $footer-navH;
+        padding          : calc($footer-navH / 5) 5px;
+        @mixin atMedium{
+            font-size : 1rem;
+            padding   : calc($footer-navH / 5) 5px;
+        }
+        
     }
 }

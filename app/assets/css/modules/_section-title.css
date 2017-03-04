@@ -1,13 +1,14 @@
 .section-title {
     &--blue { color: $mainBlue }
     &--less-margin {
-        margin-top: 0;
-        margin-bottom: 0.3rem !important
-    };
-    text-align: center;
-    font-size: 2.55rem;
-    font-weight: 300;
-    margin-bottom: 2.5rem;
+        margin-top    : 0;
+        margin-bottom : 0.3rem !important
+    }
+    text-align    : center;
+    font-size     : 2.55rem;
+    font-weight   : 300;
+    margin-top    : 0;
+    margin-bottom : 1.5rem;
     @mixin atSmall {
         margin-bottom: 2rem;
     }
@@ -15,23 +16,23 @@
         font-weight: 500;
     }
     @mixin atMedium {
-        font-size: 3.75rem;
-        margin-bottom: 4.5rem;
+        font-size     : 3.75rem;
+        margin-bottom : 3.5rem;
     }
     &__icon {
-        display: block;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 0.6rem;;
+        display       : block;
+        text-align    : center;
+        margin-left   : auto;
+        margin-right  : auto;
+        margin-bottom : 0.6rem;;
         @mixin atSmall {
-            display: inline-block;
-            text-align: left;
-            position: relative;
-            top: 8px;
-            margin-right: 0.5rem;
-            margin-left: 0;
-            margin-bottom: 0;
+            position      : relative;
+            top           : 8px;
+            display       : inline-block;
+            text-align    : left;
+            margin-right  : 0.5rem;
+            margin-left   : 0;
+            margin-bottom : 0;
         }
     }
 }

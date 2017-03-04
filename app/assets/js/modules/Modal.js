@@ -1,30 +1,21 @@
 import $ from 'jquery';
 
-class Modal {
-    constructor (modalName) {
-        this.modal = $('#' + modalName);
-        this.openTrigger = $('.' + modalName + '--open');
-        this.closeTrigger = $('.' + modalName + '--close');
-        this.events();
+export default function Modal (name) {
+    const
+        modal        = $(`#${name}`),
+        openTrigger  = $(`.${name}--open'`),
+        closeTrigger = $(`.${name}--close`);
+
+    function openModal ()  { modal.addClass('modal--open') }
+    function closeModal () { modal.removeClass('modal--open')  }
+    
+    function handleKeyPress (key) {
+        if (key.keyCode === 27) modal.removeClass('modal--open');
     }
 
-    events () {
-        this.openTrigger.click(this.openModal.bind(this));
-        this.closeTrigger.click(this.closeModal.bind(this));
-        $(document).keyup(this.handleKeyPress.bind(this));
-    }
-
-    openModal () {
-        this.modal.addClass('modal--open');
-        return false;
-    }
-    closeModal () {
-        this.modal.removeClass('modal--open');
-        return false;
-    }
-    handleKeyPress (key) {
-        if (key.keyCode === 27) this.modal.removeClass('modal--open');
-    }
+    return (() => {
+        openTrigger.click(openModal);
+        closeTrigger.click(closeModal);
+        $(document).keyup(handleKeyPress);
+    })()
 }
-
-export default Modal

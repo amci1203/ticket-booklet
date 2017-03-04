@@ -1,15 +1,18 @@
 .row {
+    position: relative;
     @mixin clearfix;
-    &--gutters {
-        margin-right: calc($gutter-width * -1);
-        & > div { padding-right: $gutter-width }
-        &--large {
-            margin-right: calc((1.5 * $gutter-width) * -1);
-            & > div { padding-right: calc(1.5 * $gutter-width) }
-        }
-        &--small {
-            margin-right: calc((0.7 * $gutter-width) * -1);
-            & > div { padding-right: calc(0.7* $gutter-width) }
+    @mixin atMedium {
+        .row--gutters {
+            margin-right: calc($gutter-width * -1);
+            & > div { padding-right: $gutter-width }
+            &--large {
+                margin-right: calc((1.5 * $gutter-width) * -1);
+                & > div { padding-right: calc(1.5 * $gutter-width) }
+            }
+            &--small {
+                margin-right: calc((0.6 * $gutter-width) * -1);
+                & > div { padding-right: calc(0.6 * $gutter-width) }
+            }
         }
     }
     &--t-padding {

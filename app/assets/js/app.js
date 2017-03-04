@@ -1,6 +1,14 @@
-import MobileMenu from './modules/MobileMenu';
-import ScrollReveal from './modules/RevealOnScroll';
+import $ from 'jquery';
+
+import Menu         from './modules/Menu';
+import Inject         from './modules/Injector';
+import ScrollSpy    from './modules/ScrollSpy';
 import StickyHeader from './modules/StickyHeader';
-import Modal from './modules/Modal';
-import ScrollSpy from './modules/ScrollSpy';
-///////////////////////////////////////////////////////////////////////////////
+
+function init () {
+    Menu();
+    ScrollSpy();
+    StickyHeader();
+}
+
+$(document).ready(Inject.bind(init))

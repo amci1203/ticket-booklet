@@ -1,29 +1,30 @@
-import $ from 'jquery';
+import $         from 'jquery';
 import waypoints from '../../../../node_modules/waypoints/lib/noframework.waypoints';
-///////////////////////////////////////////////////////////////////////////////
-class RevealOnScroll {
-    constructor (selector, waypointOffset) {
-        this.toReveal = $(selector);
-        this.offset = waypointOffset;
-        this.hide();
-        this.createWaypoints();
-    }
-    hide () {
-        this.toReveal.addClass('reveal-item');
-    }
-    createWaypoints () {
-        let instance = this;
-        this.toReveal.each(function () {
+
+export default function RevealOnScroll (selector, waypointOffset, doesZoom) {
+    const toReveal = $(selector.trim()),
+          offset   = waypointOffset,
+          zooms    = doesZoom == undefined ? true : doesZoom;
+
+    return (() => {
+        if (zooms) {
+            toReveal.addClass('reveal-item');
+        } else {
+            toReveal.addClass('reveal-item--no-zoom');
+        }
+        toReveal.each(function () {
             let currentItem = this;
             new Waypoint({
-                element: currentItem,
-                offset: instance.offset,
-                handler: function () {
-                    $(currentItem).addClass('reveal-item--visible');
+                element : currentItem,
+                offset  : offset,
+                handler : () => {
+                    if (zooms) {
+                        $(currentItem).addClass('reveal-item--visible');
+                    } else {
+                        $(currentItem).addClass('reveal-item--no-zoom--visible');
+                    }
                 }
             })
         })
-    }
+    })()
 }
-
-export default RevealOnScroll;

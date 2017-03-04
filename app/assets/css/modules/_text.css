@@ -1,0 +1,24 @@
+.text {
+    &-center-at-md { @mixin atMedium { text-align: center } }
+    &-right-at-md  { @mixin atMedium { text-align: right  } }
+    &-left-at-md   { @mixin atMedium { text-align: left   } }
+
+    &-center-until-md  { @mixin smThanMedium { text-align: center } }
+    &-right-until-md   { @mixin smThanMedium { text-align: right  } }
+    &-left-until-md    { @mixin smThanMedium { text-align: left   } }
+
+    &-center  { text-align: center }
+    &-right  { text-align: right  }
+    &-left   { text-align: left   }
+
+    &-white  { color: #FFF }
+    &-black  { color: #111 }
+
+    &-xl { font-size: 150% }
+    &-lg { font-size: 125% }
+    &-sm { font-size: 75%  }
+    &-xs { font-size: 50%  }
+
+    &-xlight { font-weight: 100 }
+    &-light  { font-weight: 300 }
+}

@@ -1,9 +1,10 @@
-var gulp = require('gulp'),
-    del = require('del'),
-    usemin = require('gulp-usemin'),
-    rev = require('gulp-rev'),
-    cssNano = require('gulp-cssnano'),
-    uglify = require('gulp-uglify'),
+const
+    gulp        = require('gulp'),
+    del         = require('del'),
+    usemin      = require('gulp-usemin'),
+    rev         = require('gulp-rev'),
+    cssNano     = require('gulp-cssnano'),
+    uglify      = require('gulp-uglify'),
     minimizeIMG = require('gulp-imagemin'),
     browserSync = require('browser-sync').create();
 
@@ -20,17 +21,17 @@ gulp.task('cleanDist', ['icons'], function () {
 
 gulp.task('copyGeneralFiles', ['cleanDist'], function () {
     return gulp.src([
-        './app/**/*',
-        '!./app/index.html',
-        '!./app/assets/{js,css,images}/**',
-        '!./app/temp',
-        '!./app/temp/**',
+        './seabreeze/**/*',
+        '!./seabreeze/index.html',
+        '!./seabreeze/assets/{js,css,images}/**',
+        '!./seabreeze/temp',
+        '!./seabreeze/temp/**',
         ])
         .pipe(gulp.dest('./docs'))
 })
 
 gulp.task('optimizeIMGs', ['cleanDist'], function () {
-    return gulp.src(['./app/assets/images/**/*', '!./app/assets/images/**/*-i.*', '!./app/assets/images/icons', '!./app/assets/images/icons/**/*'])
+    return gulp.src(['./seabreeze/assets/images/**/*', '!./seabreeze/assets/images/**/*-i.*'])
     .pipe(minimizeIMG({
         pregressive: true,
         interlaced: true,
@@ -44,7 +45,7 @@ gulp.task('useminTrigger', ['cleanDist'], function () {
 })
 
 gulp.task('optimizeStaticFiles', ['css', 'scripts'], function () {
-    return gulp.src(['./app/index.html'])
+    return gulp.src(['./seabreeze/index.html'])
         .pipe(usemin({
             css: [
                 function () {
@@ -71,6 +72,15 @@ gulp.task('distView', function () {
         notify: false,
         server: {
             baseDir: 'docs'
+        }
+    });
+})
+
+gulp.task('rootView', function () {
+    browserSync.init({
+        notify: false,
+        server: {
+            baseDir: './'
         }
     });
 })
