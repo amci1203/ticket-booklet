@@ -17,18 +17,12 @@ img {
     height    : auto;
 }
 hr {
-    &.yellow { border-color: $mainYellow }
-    &.blue   { border-color: $mainBlue   }
+    &.yellow { border-color: $mainYellow }    
+    &.blue   { border-color: $mainBlue   }    
 }
 
 .invisible { visibility : hidden }
 .hide      { display    : none   }
-
-.styleless-list {
-    padding    : 0;
-    margin-top : 0;
-    li { list-style-type: none }
-}
 
 .pull-left  { float: left  }
 .pull-right { float: right }

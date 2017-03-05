@@ -15,7 +15,7 @@ gulp.task('scriptsRefresh', ['scripts'], function () {
     browserSync.reload();
 })
 
-gulp.task('watch', function () {
+gulp.task('watch', ['scripts', 'css'], function () {
     browserSync.init({
         notify: false,
         server: {

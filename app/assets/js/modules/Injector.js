@@ -1,36 +1,58 @@
 import $ from 'jquery';
 
-export default function Inject (callback, nested) {
+export default function Inject (callback) {
     const partialViews  = $('._partial'),
+          viewsRoot     = 'views/',
           numViews      = partialViews.length,
-          views         = nested ? `${location.pathname}` : 'views/',
-          findView      = string => `${views}${string}.html`;
+          findView      = string => `${viewsRoot}${string}.html`;
     let viewsInjected = 0;
     
     function fetchFiles () {
-        partialViews.each(function () {
-            const view = findView( $(this).attr('data-view') );
-            $.get(view)
-            .done(data => $(this).html(data))
-            .fail(err => {})
-            .always(() => {
-                fetchNestedFiles( $(this) )
-                viewsInjected++;
-                if (viewsInjected == numViews) {
-                    setTimeout(callback, 200)
-                };
+        if (numViews > 0) {
+            partialViews.each(function () {
+                const view = findView( $(this).attr('data-view') );
+                get.call(this, view);
             })
-        })
+        }
+        else return false;
     }
     
     function fetchNestedFiles (partial) {
-        const root   = partial.attr('data-view'),
-              nested = partial.find('._partial');
-        
+        const parentFolderNames = partial.attr('data-view').split('/'),
+              numParentFolders  = partial.length - 1,
+              nestedInclusions  = partial.find('._partial');
+        if (nestedInclusions.length > 0) {
+            nestedInclusions.each(function () {
+                const relativePath = $(this).attr('data-view').split('/');
+                let goUp = 0;
+                relativePath.forEach(string => { if (string == '..') goUp++ } );
+                const fixedRelativePath = relativePath.filter(string => string != '..');
+
+                const parentPath = () => {
+                    let i = 0, str = '';
+                    for (i = 0; i > numParentFolders - goUp; i++) { str+= parentFolderNames[i] }
+                    return str;
+                }
+
+                get.call(this, findView([...parentPath, ...fixedRelativePath].join('/')) );
+            })
+        }
+        else return false;
     }
     
-    return (() => {
-        if (numViews > 0) fetchFiles()
-    })()
+    function get (path) {
+        $.get(path)
+        .done(data => $(this).html(data))
+        .fail(err => {})
+        .always(() => {
+            setTimeout( fetchNestedFiles.bind(this, $(this)), 200 )
+            viewsInjected++;
+            if (viewsInjected == numViews) {
+                setTimeout(callback, 200)
+            };
+        })
+    }
+    
+    return (fetchFiles())
     
 }
