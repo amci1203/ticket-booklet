@@ -13,7 +13,7 @@ export default function ScrollSpy () {
         if (direction == targetDirection) {
             const targetLink = `_${section.id}`;
             links.removeClass('current-link');
-            document.getElementById(targetLink).classList.add('current-link');
+            document.getElementsByClassName(targetLink).classList.add('current-link');
         }
     }
     

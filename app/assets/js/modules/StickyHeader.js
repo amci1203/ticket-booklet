@@ -3,12 +3,13 @@ import _ from '../vendor/lodash.min';
 
 import waypoints from '../../../../node_modules/waypoints/lib/noframework.waypoints';
 
-export default function StickyHeader () {
+export default function StickyHeader (_disappears) {
     const
         nav                  = document.getElementById('primary-nav'),
         trigger              = nav,
         interval             = 200,
-        requiredConsecutives = 3;
+        requiredConsecutives = 3,
+        disappears           = _disappears || false
     let
         prevScroll           = 0,
         consecutives         = 2,
@@ -40,9 +41,14 @@ export default function StickyHeader () {
             }
         });
     }
-
+    
+    function setDisplayState () {
+        if (!disappears) nav.classList.add('visible')
+    }
+    
     return (() => {
         setWaypoint();
-        $(window).scroll(_.throttle(handleScroll, interval))
+        setDisplayState();
+        if (disappears) $(window).scroll(_.throttle(handleScroll, interval))
     })()
 }
