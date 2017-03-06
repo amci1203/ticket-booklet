@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export default function Inject (callback) {
+export default function Injector (callback) {
     const partialViews  = $('._partial'),
           viewsRoot     = 'views/',
           numViews      = partialViews.length,
@@ -18,26 +18,34 @@ export default function Inject (callback) {
     }
     
     function fetchNestedFiles (partial) {
-        const parentFolderNames = partial.attr('data-view').split('/'),
-              numParentFolders  = partial.length - 1,
+        const parentFolderNames = partial.attr('data-view').split('/').filter(str => str != '..').slice(0, -1),
+              numParentFolders  = parentFolderNames.length,
               nestedInclusions  = partial.find('._partial');
         if (nestedInclusions.length > 0) {
             nestedInclusions.each(function () {
-                const relativePath = $(this).attr('data-view').split('/');
-                let goUp = 0;
-                relativePath.forEach(string => { if (string == '..') goUp++ } );
-                const fixedRelativePath = relativePath.filter(string => string != '..');
+                const 
+                    nestedPath      = $(this).attr('data-view').split('/'),
+                    fixedNestedPath = nestedPath.filter(str => str != '..'),
+                    dirsUp          = nestedPath.filter(str => str == '..').length,
 
-                const parentPath = () => {
-                    let i = 0, str = '';
-                    for (i = 0; i > numParentFolders - goUp; i++) { str+= parentFolderNames[i] }
-                    return str;
-                }
-
-                get.call(this, findView([...parentPath, ...fixedRelativePath].join('/')) );
+                    numParentDirs     = numParentFolders - dirsUp,
+                    dirInboundOfViews = numParentDirs >= 0,
+                    parentPath        = dirInboundOfViews ? parentFolderNames.slice(0, numParentDirs) : [''],
+                    realPath          = nestedPath[0] != '' ? [...parentPath, ...fixedNestedPath] : nestedPath,
+                    view              = findView(realPath.join('/'));
+                
+                const vars = { parentFolderNames, numParentFolders, nestedPath, fixedNestedPath, dirsUp, numParentDirs, dirInboundOfViews, parentPath, view}
+                console.log(vars);
+                
+                get.call(this, view);
             })
         }
         else return false;
+    }
+    
+    function incrementInjectionsDone () {
+        viewsInjected++;
+        if (viewsInjected == numViews) { setTimeout(callback, 200) };
     }
     
     function get (path) {
@@ -45,11 +53,8 @@ export default function Inject (callback) {
         .done(data => $(this).html(data))
         .fail(err => {})
         .always(() => {
-            setTimeout( fetchNestedFiles.bind(this, $(this)), 200 )
-            viewsInjected++;
-            if (viewsInjected == numViews) {
-                setTimeout(callback, 200)
-            };
+            setTimeout( fetchNestedFiles.bind(this, $(this)), 200 );
+            incrementInjectionsDone();
         })
     }
     

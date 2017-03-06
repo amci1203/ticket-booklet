@@ -11,14 +11,14 @@
     &.visible {
         margin-bottom: 0;
     }
-
+    
     #left {
         float: left;
     }
     #right {
         float: right;
     }
-
+    
     button:not(.menu-toggle) {
         background-color : transparent;
         border           : none;
@@ -29,13 +29,13 @@
         &:hover {
             background-color: color($navs-color b(50%));
         }
-
+        
         img {
             height : calc($mob-navH / 2);
             width  : auto;
         }
     }
-
+    
     .menu-toggle {
         @mixin atMedium { display: none }
         @mixin hCenter;

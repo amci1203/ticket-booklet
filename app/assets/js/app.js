@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 import Menu         from './modules/Menu';
-import Inject         from './modules/Injector';
+import Injector     from './modules/Injector';
 import ScrollSpy    from './modules/ScrollSpy';
 import StickyHeader from './modules/StickyHeader';
 
@@ -11,4 +11,4 @@ function init () {
     StickyHeader();
 }
 
-$(document).ready(Inject.bind(init))
+$(document).ready(Injector.bind(window, init))

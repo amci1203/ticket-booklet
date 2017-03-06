@@ -1,7 +1,7 @@
 .page-section {
     padding          : 4.5rem 0;
-    color            : #333;
-    background-color : #FFF;
+    color            : #FFF;
+    background-color : $navs-color;
     &--blue {
         background-color : $mainBlue;
         color            : inherit;
@@ -9,10 +9,6 @@
     &--yellow {
         background-color : $mainYellow;
         color            : inherit;
-    }
-    &--nav-color {
-        background-color : $navs-color;
-        color            : #FFF;
     }
     &--testimonials {
         background-color: #E0E6EF;
@@ -23,10 +19,6 @@
             }
         }
     }
-    &--less-padding { padding: 2.15rem }
-    &--no-b-padding { padding-bottom: 0 }
-    &--no-t-padding { padding-top: 0 }
-    
     &--no-b-padding-until-md {
         padding: 0;
         @mixin atMedium {
@@ -37,19 +29,6 @@
         padding: 0;
         @mixin atLarge {
             padding-bottom: 4.5rem
-        }
-    }
-    &--no-t-padding-until-md {
-        padding: 0;
-        @mixin atMedium {
-            padding-top: 4.5rem
-        }
-    }
-    
-    &--no-t-padding-until-lg {
-        padding: 0;
-        @mixin atLarge {
-            padding-top: 4.5rem
         }
     }
 }

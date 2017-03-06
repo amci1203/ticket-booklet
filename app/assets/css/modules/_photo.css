@@ -16,7 +16,7 @@
     font-size        : 1.15rem;
     
     &--tilted {
-        &-left {@mixin atMedium { transform: rotate(-5deg) }}
-        &-right {@mixin atMedium { transform: rotate(5deg) }}
+        &-left {@mixin atMedium { transform: rotate(-7deg) }}
+        &-right {@mixin atMedium { transform: rotate(7deg) }}
     }
 }
