@@ -69,7 +69,8 @@ export default function Injector (callback) {
             .always(() => {
                 setTimeout( fetchNestedFiles.bind(this, $(this)), wait );
                 incrementInjectionsDone();
-            }
+            })
+    }
     
     function getAll (folder, ..._views) {
         const views    = [..._views],
