@@ -1,6 +1,6 @@
 .footer {
-    background-color : $navs-color;
-    color            : $navs-text;
+    background-color : $footer-color;
+    color            : $footer-text;
     font-size        : 1rem;
     text-align       : center;
     padding          : 0.35rem 0;
@@ -17,36 +17,35 @@
         }
     }
     
+    /* FOOTER NAV */
     ul {
         @mixin smThanMedium {
             display: none;
         }
         @mixin clearfix;
-        margin     : 0;
+        margin     : 0 0 1.15rem 0;
         padding    : 0;
         text-align : center;
         
-        margin-bottom: 1.15rem;
     }
     li {
         display      : inline-block;
         margin       : 0;
         list-style   : none;
-        border-right : 2px solid color($navs-color s(+ 40%));
-        &:last-child { border-right: none }
+        border-right : 2px solid color($footer-color l(+ 7));
         
+        &:last-child { border-right: none }
         &:nth-child(even) { a:hover  { border-bottom: 3px solid $mainBlue } }
         &:nth-child(odd)  { a:hover  { border-bottom: 3px solid $mainYellow } }
     }
     a {
         @mixin noTextDecoration;
-        transition       : background-color 0.2s ease-in; 
-        display          : block;
-        margin           : 0 0.8rem;
-        font-weight      : 100;
-        font-size        : 0.8rem;
-        height           : $footer-navH;
-        padding          : calc($footer-navH / 5) 5px;
+        display     : block;
+        height      : $footer-navH;
+        margin      : 0 0.8rem;
+        padding     : calc($footer-navH / 5) 5px;
+        font-size   : 0.8rem;
+        font-weight : 100;
         @mixin atMedium{
             font-size : 1rem;
             padding   : calc($footer-navH / 5) 5px;

@@ -1,17 +1,56 @@
-$mainBlue   : rgb(40, 171, 197);
-$mainYellow : rgb(253, 188, 0);
-$mainOrange : rgb(213, 149, 65);
-$navs-color : rgb(30, 35, 41);
+/* COLORS */
+    /* BASES */
+    $black : rgb(0, 0, 0);
+    $white : rgb(255, 255, 255);
+    $gray  : rgb(128, 128, 128);
 
 
-$wrapper-padding: 18px;
-$gutter-width: 65px;
+    $darkest-gray  : color($black l(+10));
+    $darker-gray   : color($black l(+20));
+    $dark-gray     : color($black l(+30));
+    $lighter-gray  : color($white l(-30));
+    $lighter-gray  : color($white l(-20));
+    $lightest-gray : color($white l(-10));
 
-$navs-text       : #FFF;
-$primary-navH    : 80px;
-$contacts-navH   : 40px;
-$footer-navH     : 30px;
-$mob-navH        : 45px;
+    /* CUSTOM COLORS */
+    $mainBlue   : rgb(40, 171, 197);
+    $mainYellow : rgb(253, 188, 0);
+    $mainOrange : rgb(213, 149, 65);
 
-$primary-navZ    : 500;
-$contacts-navZ   : 100;
+/* COLORS END */
+
+/* Z-INDEXES  */
+
+    $primary-navZ : 500;
+
+/* Z-INDEXES END */
+
+/* MISC. MODULES CONFIG */
+    /* WRAPPER */
+    $wrapper-padding : 18px;
+    /* ROWS */
+    $gutter-width    : 65px;
+
+/* MISC. MODULES CONFIG END */
+
+/* COMPONENTS */
+    /* NAVS */
+    $navs-color   : $darker-gray;
+    $navs-hover   : color($navs-color b(+10));
+    $navs-current : $navs-hover;
+    $navs-active  : $navs-hover;
+
+    $navs-text         : #FFF;
+    $navs-hover-text   : $navs-text;
+    $navs-current-text : $navs-text;
+    $navs-active-text  : $navs-text;
+        /* PRIMARY NAV */
+        $primary-navH : 60px;
+        /* FOOTER NAV */
+        $footer-navH  : 30px;
+        /* MOBILE NAV */
+        $mob-navH     : 45px;
+    
+    /* FOOTER */
+    $footer-color : $navs-color;
+    $footer-text  : $navs-text;
