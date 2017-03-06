@@ -44,7 +44,7 @@ export default function Injector (callback) {
 
                     numParentDirs     = numParentFolders - dirsUp,
                     dirInboundOfViews = numParentDirs >= 0,
-                    parentPath        = dirInboundOfViews ? parentFolderNames.slice(0, numParentDirs) : [''],
+                    parentPath        = dirInboundOfViews ? parentFolderNames.slice(0, numParentDirs) : [],
                     realPath          = nestedPath[0] != '' ? [...parentPath, ...fixedNestedPath] : nestedPath,
                     view              = findView(realPath.join('/'));
                 

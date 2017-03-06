@@ -1,7 +1,6 @@
 .page-section {
     padding          : 4.5rem 0;
     color            : #FFF;
-    background-color : $navs-color;
     &--blue {
         background-color : $mainBlue;
         color            : inherit;
