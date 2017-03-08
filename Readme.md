@@ -1,4 +1,4 @@
-# My Skeleton
+# My Scaffold
 
 -----------------------------
 
