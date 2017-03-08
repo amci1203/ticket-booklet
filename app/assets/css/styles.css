@@ -29,3 +29,5 @@
     @import 'modules/footer';
     /* SINGLE USE BLOCKS END */
 /* MODULES END */
+
+#initial { @mixin deadCenter }
