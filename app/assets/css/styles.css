@@ -1,31 +1,31 @@
 /* GLOBAL FILES */
-@import 'normalize.css';
-@import 'base/_variables';
-@import 'base/_mixins';
-@import 'base/_global';
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/global';
 /* GLOBAL FILES END */
-/* MODULES */
-/* MULTIPLE USE BLOCKS */
-    @import 'modules/_btn';
-    @import 'modules/_feature-item';
-    @import 'modules/_generic-content';
-    @import 'modules/_headline';
-    @import 'modules/_icon';
-    @import 'modules/_modal';
-    @import 'modules/_page-section';
-    @import 'modules/_photo';
-    @import 'modules/_reveal-item';
-    @import 'modules/_row';
-    @import 'modules/_section-title';
-    @import 'modules/_social-icons';
-    @import 'modules/_text';
-    @import 'modules/_wrapper';
-/* MULTIPLE USE BLOCKS END */
 
-/* SINGLE USE BLOCKS */
-    @import 'modules/_large-hero';
-    @import 'modules/_primary-nav';
-    @import 'modules/_mobile-buttons';
-    @import 'modules/_footer';
-/* SINGLE USE BLOCKS END */
+/* MODULES */
+    /* MULTIPLE USE BLOCKS */
+    @import 'modules/btn';
+    @import 'modules/feature-item';
+    @import 'modules/generic-content';
+    @import 'modules/headline';
+    @import 'modules/icon';
+    @import 'modules/modal';
+    @import 'modules/page-section';
+    @import 'modules/photo';
+    @import 'modules/reveal-item';
+    @import 'modules/row';
+    @import 'modules/section-title';
+    @import 'modules/social-icons';
+    @import 'modules/text';
+    @import 'modules/wrapper';
+    /* MULTIPLE USE BLOCKS END */
+
+    /* SINGLE USE BLOCKS */
+    @import 'modules/large-hero';
+    @import 'modules/primary-nav';
+    @import 'modules/mobile-buttons';
+    @import 'modules/footer';
+    /* SINGLE USE BLOCKS END */
 /* MODULES END */

@@ -17,10 +17,10 @@ export default function StickyHeader (_disappears) {
 
     function handleScroll (event) {
         const scroll    = $(window).scrollTop(),
-              direction =  scroll > prevScroll ? 'down' : 'up';
-        if (direction == prevDirection) {
-            consecutives++;
-        } else consecutives = 0;
+              direction = scroll > prevScroll ? 'down' : 'up',
+              goesUp    = direction == prevDirection ? consecutives + 1 : 0;
+
+        consecutives = goesUp;
         if (consecutives == requiredConsecutives) {
             if (direction === 'up') {
                 nav.classList.add('visible');
@@ -49,6 +49,9 @@ export default function StickyHeader (_disappears) {
     return (() => {
         setWaypoint();
         setDisplayState();
-        if (disappears) $(window).scroll(_.throttle(handleScroll, interval))
+        
+        if (disappears) {
+            $(window).scroll(_.throttle(handleScroll, interval))
+        }
     })()
 }

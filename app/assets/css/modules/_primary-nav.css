@@ -4,24 +4,24 @@
     color            : $navs-text;
     transition       : all 0.2s ease-in;
     overflow         : hidden;
-    
+
     @mixin smThanMedium {
         position  : fixed;
         top       : 0;
         height    : 0;
         width     : 100%;
     }
-    
+
     @mixin atMedium {
         position      : relative;
         height        : $primary-navH;
         padding-top   : 0
     }
-    
+
     &--open {
         height : 100%;
     }
-    
+
     &--fixed {
         @mixin atMedium {
             position   : fixed;
@@ -34,7 +34,7 @@
             }
         }
     }
-    
+
     ul {
         @mixin clearfix;
         margin     : 0;
@@ -47,7 +47,7 @@
     }
     &.links-left ul  { text-align: left  }
     &.links-right ul { text-align: right }
-    
+
     li {
         position    : relative;
         margin      : 0;
@@ -68,7 +68,7 @@
             display : inline-block;
         }
     }
-    
+
     a {
         @mixin noTextDecoration;
         transition  : all 0.2s ease-in;
@@ -95,4 +95,3 @@
         }
     }
 }
-

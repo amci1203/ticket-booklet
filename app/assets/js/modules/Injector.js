@@ -1,11 +1,14 @@
 import $ from 'jquery';
 
 export default function Injector (callback) {
-    const partialViews  = $('._partial'),
-          viewsRoot     = 'views/',
-          numViews      = partialViews.length,
-          findView      = string => `${viewsRoot}${string}.html`;
-    let viewsInjected = 0;
+    const 
+        partialViews  = $('._partial'),
+        wait          = 500,
+        viewsRoot     = 'views/',
+        numViews      = partialViews.length,
+        findView      = string => `${viewsRoot}${string}.html`;
+    let
+        viewsInjected = 0;
     
     function fetchFiles () {
         if (numViews > 0) {
@@ -45,7 +48,7 @@ export default function Injector (callback) {
     
     function incrementInjectionsDone () {
         viewsInjected++;
-        if (viewsInjected == numViews) { setTimeout(callback, 200) };
+        if (viewsInjected == numViews) { setTimeout(callback, wait) };
     }
     
     function get (path) {
@@ -53,7 +56,7 @@ export default function Injector (callback) {
         .done(data => $(this).html(data))
         .fail(err => {})
         .always(() => {
-            setTimeout( fetchNestedFiles.bind(this, $(this)), 200 );
+            setTimeout( fetchNestedFiles.bind(this, $(this)), wait );
             incrementInjectionsDone();
         })
     }

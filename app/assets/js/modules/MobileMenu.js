@@ -1,9 +1,9 @@
 import $ from 'jquery';
 import _ from '../vendor/lodash.min';
 
-export default function Menu () {
+export default function MobileMenu () {
     const
-        icon     = $('.menu-toggle'),
+        icon     = $('#menu-toggle'),
         buttons  = $('.mobile-buttons'),
         content  = $('.primary-nav'),
         interval = 100,
@@ -14,6 +14,7 @@ export default function Menu () {
         prevDirection = 'down';
 
     function toggleMenu () {
+        console.log('Fired')
         $('html').toggleClass('scroll-lock');
         icon.toggleClass('menu-toggle--close');
         content.toggleClass('primary-nav--open');
@@ -45,5 +46,7 @@ export default function Menu () {
         icon.click(toggleMenu);
         links.click(closeMenu);
         $(window).scroll(_.throttle(handleScroll, interval));
+        
+        return { toggleMenu, closeMenu }
     })()
 }

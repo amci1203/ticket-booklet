@@ -17,5 +17,7 @@ export default function Modal (name) {
         openTrigger.click(openModal);
         closeTrigger.click(closeModal);
         $(document).keyup(handleKeyPress);
+        
+        return { openModal, closeModal }
     })()
 }

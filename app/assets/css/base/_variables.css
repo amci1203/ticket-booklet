@@ -5,12 +5,20 @@
     $gray  : rgb(128, 128, 128);
 
 
-    $darkest-gray  : color($black l(+10));
-    $darker-gray   : color($black l(+20));
-    $dark-gray     : color($black l(+30));
-    $lighter-gray  : color($white l(-30));
-    $lighter-gray  : color($white l(-20));
-    $lightest-gray : color($white l(-10));
+    $darkest-gray  : color($black l(+ 10%));
+    $darker-gray   : color($black l(+ 20%));
+    $dark-gray     : color($black l(+ 30%));
+    $lighter-gray  : color($white l(- 30%));
+    $lighter-gray  : color($white l(- 20%));
+    $lightest-gray : color($white l(- 10%));
+
+    /* CONTEXTUAL COLORS */
+    $brand-default : $lightest-gray;
+    $brand-primary : rgb(51, 122, 183);
+    $brand-success : rgb(92, 184, 92);
+    $brand-info    : rgb(91, 192, 222);
+    $brand-warning : rgb(240, 173, 78);
+    $brand-danger  : rgb(217, 83, 79);
 
     /* CUSTOM COLORS */
     $mainBlue   : rgb(40, 171, 197);
@@ -25,18 +33,37 @@
 
 /* Z-INDEXES END */
 
+/* DEFAULTS */
+
+    $body-bg : $white;
+    $body-fg : $darkest-gray;
+    $font-sz : 14px;
+
+    $link-color       : $gray;
+    $link-hover       : color($gray b(+ 5%));
+    $link-hover-decor : underline;
+
+/* DEFAULTS END */
+
 /* MISC. MODULES CONFIG */
-    /* WRAPPER */
-    $wrapper-padding : 18px;
-    /* ROWS */
-    $gutter-width    : 65px;
 
 /* MISC. MODULES CONFIG END */
 
 /* COMPONENTS */
+    /* BUTTONS */
+    $btn-font-size : 1rem;
+    $btn-vPadding  : 0.75rem;
+    $btn-hPadding  : 1.2rem;
+
+    /* LARGE HERO */
+    $large-hero-background   : $lighter-gray;
+    $large-hero-border-color : $gray;
+    $large-hero-title-text   : $dark-gray;
+    $large-hero-text         : $darkest-gray;
+
     /* NAVS */
     $navs-color   : $darker-gray;
-    $navs-hover   : color($navs-color b(+10));
+    $navs-hover   : color($navs-color b(+ 10%));
     $navs-current : $navs-hover;
     $navs-active  : $navs-hover;
 
@@ -44,13 +71,29 @@
     $navs-hover-text   : $navs-text;
     $navs-current-text : $navs-text;
     $navs-active-text  : $navs-text;
+
+    /* FOOTER */
+    $footer-color : $navs-color;
+    $footer-text  : $navs-text;
+
         /* PRIMARY NAV */
         $primary-navH : 60px;
         /* FOOTER NAV */
         $footer-navH  : 30px;
         /* MOBILE NAV */
         $mob-navH     : 45px;
-    
-    /* FOOTER */
-    $footer-color : $navs-color;
-    $footer-text  : $navs-text;
+
+    /* ROWS */
+    $gutter-width: 2%;
+
+    /* SOCIAL ICONS */
+    $social-icon-bg   : $darker-gray;
+    $social-icon-size : 72px;
+
+    /* TESTIMONIAL */
+    $testimonial-bg       : color($white a(0.75));
+    $testimonial-title    : $brand-primary;
+    $testimonial-subtitle : $brand-info;
+
+    /* WRAPPER */
+    $wrapper-padding: 18px;

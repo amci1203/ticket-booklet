@@ -1,16 +1,15 @@
 .btn {
-    background-color: $mainBlue;
-    color: #FFF;
-    text-decoration: none;
-    padding: 0.75rem 1.2rem;
-    display: inline-block;
-    &--orange {
-        background-color: $mainOrange;
-    }
-    &--large {
-        padding: 1.1rem 1.9rem;
-        @mixin atSmall {
-            font-size: 1.25rem;
-        }
-    }
+    text-decoration : none;
+    display         : inline-block;
+    @mixin btn-color $brand-default, $darker-gray;
+    @mixin btn-size 1;
+    
+    &--primary { @mixin btn-color $brand-primary }
+    &--success { @mixin btn-color $brand-success }
+    &--info    { @mixin btn-color $brand-info    }
+    &--warning { @mixin btn-color $brand-warning }
+    &--danger  { @mixin btn-color $brand-danger  }
+    
+    &--large  { @mixin btn-size 1.25 }
+    &--xlarge { @mixin btn-size 1.60 }
 }

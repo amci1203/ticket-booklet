@@ -1,26 +1,17 @@
 const
     gulp         = require('gulp'),
     postCSS      = require('gulp-postcss'),
+      
+    preCSS       = require('precss'),
     autoprefixer = require('autoprefixer'),
-    nesting      = require('postcss-nested'),
-    mixins       = require('postcss-mixins'),
-    math         = require('postcss-calc'),
-    colors       = require('postcss-color-function'),
-    hexRGB       = require('postcss-hexrgba'),
-    postImport   = require('postcss-import'),
-    cssVars      = require('postcss-simple-vars');
+    math         = require('postcss-calc');
 
 gulp.task('css', function () {
     console.log('---> Filtering CSS file...');
     return gulp.src('./app/assets/css/styles.css')
         .pipe(postCSS([
-            postImport,
-            cssVars,
-            mixins,
-            nesting,
+            preCSS,
             math,
-            colors,
-            hexRGB,
             autoprefixer
         ]))
         .on('error', function (err) {
