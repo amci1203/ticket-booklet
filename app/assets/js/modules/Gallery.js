@@ -5,18 +5,17 @@ import Modal from './Modal';
 export default function Gallery (_selector) {
     const
         interval          = 5,
-        currentImage      = 0,
         selector          = _selector.trim(),
         gallery           = $(`#${selector}`),
-        numImages         = images.length,
         images            = gallery.find('.gallery__image'),
         prev              = gallery.find('.prev'),
         next              = gallery.find('.next'),
         close             = gallery.find('.gallery--close'),
+        numImages         = images.length,
         totalImagesView   = gallery.find('#total-images'),
         currentImageView  = gallery.find('#current-image');
-        
-    }
+    let
+        currentImage      = 0;
 
     function init () {
         totalImagesView.html(numImages);
