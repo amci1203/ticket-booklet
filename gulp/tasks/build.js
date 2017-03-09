@@ -23,7 +23,7 @@ gulp.task('copyGeneralFiles', ['cleanDist'], function () {
     return gulp.src([
         './app/**/*',
         '!./app/index.html',
-        '!./app/assets/{js,css,images}/**',
+        '!./app/assets/{js,css,img}/**',
         '!./app/temp',
         '!./app/temp/**',
         ])
@@ -31,13 +31,13 @@ gulp.task('copyGeneralFiles', ['cleanDist'], function () {
 })
 
 gulp.task('optimizeIMGs', ['cleanDist'], function () {
-    return gulp.src(['./app/assets/images/**/*', '!./app/assets/images/**/*-i.*'])
+    return gulp.src(['./app/assets/img/**/*', '!./app/assets/img/**/*-i.*'])
     .pipe(minimizeIMG({
         pregressive: true,
         interlaced: true,
         multipass: true,
     }))
-    .pipe(gulp.dest('./docs/assets/images'))
+    .pipe(gulp.dest('./docs/assets/img'))
 })
 
 gulp.task('useminTrigger', ['cleanDist'], function () {

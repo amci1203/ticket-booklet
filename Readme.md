@@ -12,7 +12,7 @@ As this is mainly a personal project and I'm a bit busy nowadays, you'll have to
 ### Gulp Tasks
 
 1.  default: starts browsersync and watches index.html, app/views, app/assets/css, and ap/assets/css.
-2.  icons: creates an SVG & PNG spritesheet using the icons in app/assets/images/icons.
+2.  icons: creates an SVG & PNG spritesheet using the icons in app/assets/img/icons.
 3.  build: builds a minified, production ready docs folder.
 
 -----------------------------
