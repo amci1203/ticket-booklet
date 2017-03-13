@@ -55,6 +55,11 @@
     $btn-vPadding  : 0.75rem;
     $btn-hPadding  : 1.2rem;
 
+    /* CARDS */
+    $cards-color   : color($mainBlue l(+ 25%));
+    $cards-border  : color($cards-color l(- 5%));
+    $cards-text    : $darkest-gray;
+
     /* LARGE HERO */
     $large-hero-background   : $lighter-gray;
     $large-hero-border-color : $gray;

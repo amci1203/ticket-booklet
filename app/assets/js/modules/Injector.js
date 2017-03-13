@@ -1,81 +1,69 @@
 import $ from 'jquery';
 
 export default function Injector (callback) {
-    const 
-        pageViews     = $('._page'),
-        partialViews  = $('._partial'),
-        wait          = 500,
-        viewsRoot     = 'views/',
-        numViews      = partialViews.length,
-        findView      = string => `${viewsRoot}${string}.html`;
-    let
-        viewsInjected = 0;
+
+    function findView () {
+        const
+            path  = $(this).attr('data-view'),
+            child = path.split('/'),
+            nest  = $(this).attr('data-root'),
+            root  = nest ? nest.split('/') : ['views'];
+
+        if (path.charAt(0) == '/') {
+            if (path.substr(-5) == '.html') return path
+            else return `${path}.html`
+        };
+
+        const
+            directoriesUp = child.filter(str => str == '..').length,
+            inViewsFolder = (root.length - directoriesUp) > 0;
+
+//        console.log({ root, child })
+
+        if (!inViewsFolder && childPath[0] != '') {
+            console.error('All views/partials should be in the "views" folder. Use an absolute path to use files above "views"');
+            return false;
+        }
+        else {
+            const
+                realRoot  = directoriesUp == 0 ? root : root.slice(0, (directoriesUp * -1)),
+                realChild = child.filter(str => str != '..'),
+
+                view = [...realRoot, ...realChild].join('/');
+
+            if (view.substr(-5) == '.html') return view
+            else return `${view}.html`
+        }
+    }
     
     function fetchFiles () {
-        function iterate () {
-            if (this.hasAttribute('data-view')) {
-                const path = $(this).attr('data-view'),
-                      view = $(this).hasClass('_partial') ? findPartial(path) : findPage(path);
-                get.call(this, view);
-            }
-            else if (this.hasAttribute('data-view-all')) {
-                const val    = $(this).attr('data-view-all'),
-                      folder = val.slice(0, val.indexOf('[')).trim(),
-                      views  = JSON.parse(val.substring(val.indexOf('[')));
-                console.log({val, folder, views})
-                getAll.call(this, folder, ...views);
-            }
-        }
-        if (numViews > 0) {
-            partialViews.each(function () {
-                const view = findView( $(this).attr('data-view') );
-                get.call(this, view);
-            })
-        }
-        else return false;
-    }
-    
-    function fetchNestedFiles (specPath) {
-        const
-            pathToUseAsParent = specPath ? specPath : $(this).attr('data-view'),
-            parentFolderNames = pathToUseAsParent.split('/').filter(str => str != '..').slice(0, -1),
-            numParentFolders  = parentFolderNames.length,
-            nestedInclusions  = $(this).find('._partial, ._page');
+        $('._partial').each(function () {
+            const view = findView.call(this);
+            get.call(this, view);
+        })
 
-        if (nestedInclusions.length > 0) {
-            nestedInclusions.each(function () {
-                const
-                    nestedPath        = $(this).attr('data-view').split('/'),
-                    fixedNestedPath   = nestedPath.filter(str => str != '..'),
-                    dirsUp            = nestedPath.filter(str => str == '..').length,
-                    numParentDirs     = numParentFolders - dirsUp,
-                    dirInboundOfViews = numParentDirs >= 0,
-                    parentPath        = dirInboundOfViews ? parentFolderNames.slice(0, numParentDirs) : [''],
-                    realPath          = nestedPath[0] != '' ? [...parentPath, ...fixedNestedPath] : nestedPath,
-                    view              = findView(realPath.join('/'));
-
-                const vars = { parentFolderNames, numParentFolders, nestedPath, fixedNestedPath, dirsUp, numParentDirs, dirInboundOfViews, parentPath, view}
-                console.log(vars);
-                get.call(this, view);
-            })
-        }
-        else return false;
-    }
-    
-    function incrementInjectionsDone () {
-        viewsInjected++;
-        if (viewsInjected == numViews) { setTimeout(callback, wait) };
+        setTimeout(() => {
+            if ( $('._partial') ) fetchFiles();
+            else callback();
+        }, 150)
     }
     
     function get (path) {
         $.get(path)
-        .done(data => $(this).html(data))
-        .fail(err => {})
-        .always(() => {
-            setTimeout( fetchNestedFiles.bind(this, $(this)), wait );
-            incrementInjectionsDone();
-        })
+            .done(data => {
+                $(this).html(data);
+
+                const root = path.split('/').slice(0, -1).join('/');
+                markNestedIncludesAndUnwrap.call(this, root)
+            })
+            .fail(err => {})
+    }
+
+    function markNestedIncludesAndUnwrap (root) {
+        const nestedInclusions  = $(this).find('._partial');
+        nestedInclusions.attr('data-root', root);
+        $(this).children().unwrap();
     }
     
-    return (fetchFiles())
+    return fetchFiles()
 }
