@@ -1,0 +1,26 @@
+.caret {
+    $caret-default-color : #FFF;
+    $caret-dark-color    : #111;
+
+    display       : inline-block;
+    width         : 20px;
+    height        : 20px;
+    border-top    : 3px solid $caret-default-color;
+    border-left   : 3px solid $caret-default-color;
+    border-right  : 3px solid transparent;
+    border-bottom : 3px solid transparent;
+
+    &--dark {
+        border-top  : 3px solid $caret-dark-color;
+        border-left : 3px solid $caret-dark-color;
+    }
+    &--blue {
+        border-top  : 3px solid $mkBlue;
+        border-left : 3px solid $mkBlue;
+    }
+
+    &-up    { transform: rotate(45deg) }
+    &-right { transform: rotate(135deg) }
+    &-down  { transform: rotate(225deg) }
+    &-left  { transform: rotate(315deg) }
+}

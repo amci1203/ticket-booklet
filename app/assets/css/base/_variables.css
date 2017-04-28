@@ -95,6 +95,9 @@
     $social-icon-bg   : $darker-gray;
     $social-icon-size : 72px;
 
+    /* SOCIAL MEDIA BUTTONS */
+    $social-button-size : calc($mob-navH + 7px);
+
     /* TESTIMONIAL */
     $testimonial-bg       : color($white a(0.75));
     $testimonial-title    : $brand-primary;

@@ -8,6 +8,8 @@
 /* MODULES */
     /* MULTIPLE USE BLOCKS */
     @import 'modules/btn';
+    @import 'modules/cards';
+    @import 'modules/caret';
     @import 'modules/feature-item';
     @import 'modules/generic-content';
     @import 'modules/headline';
@@ -19,6 +21,7 @@
     @import 'modules/row';
     @import 'modules/section-title';
     @import 'modules/social-icons';
+    @import 'modules/social-media-buttons';
     @import 'modules/text';
     @import 'modules/wrapper';
     /* MULTIPLE USE BLOCKS END */
