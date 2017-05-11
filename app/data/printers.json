@@ -1,0 +1,48 @@
+{
+    "common": {
+        "BROTHER-MFC-L2740DW": {
+            "brand": "Brother",
+            "model": "MFC-L2740DW",
+            "type": "Monochrome Laser",
+            "ink": ["TN630:rg", "TN660:xl"]
+        }
+    },
+
+    "SBVV": [
+        {
+            "brand": "HP",
+            "model": "Officejet 6812",
+            "type": "CMYK Inkjet",
+            "ink": ["935 (CMY)", "934 (K)"]
+        },
+        {
+            "brand": "Brother",
+            "model": "MFC-9130CW",
+            "type": "CMYK Laser",
+            "ink": ["TN210:rg (CMYK)", "TN215:xl (CMYK)"]
+        },
+        {
+            "inherit": "BROTHER-MFC-L2740DW"
+        }
+    ],
+
+    "ORYC": [
+        {
+            "inherit": "BROTHER-MFC-L2740DW"
+        },
+        {
+            "brand": "Brother",
+            "model": "MFC-7560N",
+            "type": "Monochrome Laser",
+            "ink": ["TN420:rg", "TN450:xl"],
+            "problems": [
+                {
+                    "issue": "Needs drum",
+                    "repairable": "yes",
+                    "part": "DR420",
+                    "cost": "(unknown)"
+                }
+            ]
+        }
+    ]
+}

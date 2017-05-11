@@ -29,6 +29,7 @@
     /* SINGLE USE BLOCKS */
     @import 'modules/large-hero';
     @import 'modules/primary-nav';
+    @import 'modules/sidebar';
     @import 'modules/mobile-buttons';
     @import 'modules/footer';
     /* SINGLE USE BLOCKS END */

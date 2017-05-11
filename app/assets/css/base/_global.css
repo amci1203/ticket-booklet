@@ -7,6 +7,7 @@ body {
     padding     : 0;
     margin      : 0;
     color       : #111;
+    background  : #EEE;
     &.sticky-top {
         @mixin atMedium { padding-top: $primary-navH };
     }

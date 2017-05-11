@@ -30,6 +30,7 @@
 /* Z-INDEXES  */
 
     $primary-navZ : 500;
+    $sidebarZ     : 400;
 
 /* Z-INDEXES END */
 
@@ -71,6 +72,11 @@
     $navs-hover   : color($navs-color b(+ 10%));
     $navs-current : $navs-hover;
     $navs-active  : $navs-hover;
+
+    /* SIDEBAR */
+    $sidebarW: 300px;
+    $sidebar-color: $mainBlue;
+    $sidebar-text: $white;
 
     $navs-text         : #FFF;
     $navs-hover-text   : $navs-text;

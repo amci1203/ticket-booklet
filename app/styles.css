@@ -226,21 +226,24 @@ template { display: none;}
 /* MISC. MODULES CONFIG END */
 /* COMPONENTS */
 /* BUTTONS */
+/* CARDS */
 /* LARGE HERO */
 /* NAVS */
+/* SIDEBAR */
 /* FOOTER */
 /* PRIMARY NAV */
 /* FOOTER NAV */
 /* MOBILE NAV */
 /* ROWS */
 /* SOCIAL ICONS */
+/* SOCIAL MEDIA BUTTONS */
 /* TESTIMONIAL */
 /* WRAPPER */
 * { box-sizing: border-box;}
-body { font-family: 'Roboto', 'Arial', sans-serif; padding: 0; margin: 0; color: #111;}
+body { font-family: 'Roboto', 'Arial', sans-serif; padding: 0; margin: 0; color: #111; background: #EEE;}
 body.sticky-top {}
 @media (min-width: 768px) {
- body.sticky-top { padding-top: 80px;}}
+ body.sticky-top { padding-top: 60px;}}
 img { max-width: 100%; height: auto;}
 .invisible { visibility: hidden;}
 .hide { display: none;}
@@ -265,6 +268,30 @@ img { max-width: 100%; height: auto;}
     .btn--danger:hover { background-color: rgb(204, 83, 79);}
     .btn--large { font-size: 1.25rem; padding-top: 0.9375rem; padding-bottom: 0.9375rem; padding-left: 1.5rem; padding-right: 1.5rem; padding-right: 1.5rem; margin-top: 0.3125rem; margin-bottom: 0.3125rem; margin-left: 0.5rem; margin-right: 0.5rem;}
     .btn--xlarge { font-size: 1.6rem; padding-top: 1.2rem; padding-bottom: 1.2rem; padding-left: 1.92rem; padding-right: 1.92rem; padding-right: 1.92rem; margin-top: 0.4rem; margin-bottom: 0.4rem; margin-left: 0.64rem; margin-right: 0.64rem;}
+    .cards { margin: 0; padding: 0;}
+    .cards.checklist li {}
+    .cards.checklist li:hover { cursor: pointer;}
+    .cards > * { position: relative; float: none; margin: 20px auto; padding: 20px 15px; color: rgb(26, 26, 26); background-color: rgb(132, 214, 230); border: 1px solid rgb(111, 206, 226); box-shadow: 0 5px 5px 1px #111; text-align: center; font-size: 1.25rem;}
+    .cards > * .qty { display: none; background-color: $mkBlue; color: #FFF; border: none; border-bottom: 1px solid #FFF; padding: 3px 15px 2px 7px; margin-left: auto; margin-right: 25px; width: 4.8rem;}
+    .cards > * .tick { display: none; position: absolute; right: 10px; top: 60%;}
+    @media (min-width: 768px) {
+ .cards > * { padding: 35px 50px; text-align: left;}}
+    @media (min-width: 768px) {
+ .cards > * .qty {
+  @mixin vCenter; right: 65px; width: 4.35rem;}}
+    @media (min-width: 768px) {
+ .cards > * .tick {
+  @mixin vCenter; right: 35px;}}
+    .cards > *.selected { color: #FFF; background-color: $mkBlue; border: 1px solid #FFF;}
+    .cards > *.selected .tick { display: block;}
+    .cards > *.selected .qty { display: block;}
+    .caret { display: inline-block; width: 20px; height: 20px; border-top: 3px solid #FFF; border-left: 3px solid #FFF; border-right: 3px solid transparent; border-bottom: 3px solid transparent;}
+    .caret--dark { border-top: 3px solid #111; border-left: 3px solid #111;}
+    .caret--blue { border-top: 3px solid $mkBlue; border-left: 3px solid $mkBlue;}
+    .caret-up { -webkit-transform: rotate(45deg); transform: rotate(45deg);}
+    .caret-right { -webkit-transform: rotate(135deg); transform: rotate(135deg);}
+    .caret-down { -webkit-transform: rotate(225deg); transform: rotate(225deg);}
+    .caret-left { -webkit-transform: rotate(315deg); transform: rotate(315deg);}
     .feature-item { position: relative;}
     .feature-item p { font-weight: 300;}
     .feature-item p a { text-decoration: none; color: inherit; text-decoration: underline;}
@@ -524,6 +551,19 @@ img { max-width: 100%; height: auto;}
     .social-icons__icon .icon { position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
     @media (min-width: 480px) {
  .social-icons__icon { margin: 0 5px;}}
+    #social-media-buttons { -webkit-transition: all 0.45s ease-in; transition: all 0.45s ease-in; opacity: 0; z-index: $share-buttonsZ; width: 70px; position: fixed;}
+    #social-media-buttons button { background-color: rgb(51, 51, 51); border: none; border-radius: 26px; padding: 5px; width: 52px; height: 52px; margin: 10px 0;}
+    #social-media-buttons button img { height: 22.5px; width: auto;}
+    #social-media-buttons button:hover { background-color: rgb(42, 43, 43);}
+    @media (max-width: 768px) {
+ #social-media-buttons { bottom: 55px; left: 15px; margin-bottom: -420px;}}
+    @media (min-width: 768px) {
+ #social-media-buttons { top: 75px; right: 0; margin-top: -420px;}}
+    #social-media-buttons.visible { opacity: 1;}
+    @media (max-width: 768px) {
+ #social-media-buttons.visible { margin-bottom: 0;}}
+    @media (min-width: 768px) {
+ #social-media-buttons.visible { margin-top: 0;}}
     .text {}
     .text-center { text-align: center;}
     .text-right { text-align: right;}
@@ -667,6 +707,8 @@ img { max-width: 100%; height: auto;}
  .primary-nav li { display: inline-block;}}
     @media (min-width: 768px) {
  .primary-nav a { font-size: 1.25rem; padding: 20px 25px;}}
+    .sidebar { -webkit-transition: 0.2s all swing; transition: 0.2s all swing; position: fixed; z-index: 400; top: 60px; left: 0; height: calc(100% - 60px); background: rgb(40, 171, 197); color: rgb(255, 255, 255); width: 300px; margin-right: 300px;}
+    .sidebar--open { margin-right: 0;}
     .mobile-buttons { -webkit-transition: all 0.3s ease-in; transition: all 0.3s ease-in; background-color: rgb(51, 51, 51); position: fixed; z-index: 1000; bottom: 0; width: 100%; height: 45px; margin-bottom: -135px;}
     .mobile-buttons #left { float: left;}
     .mobile-buttons #right { float: right;}

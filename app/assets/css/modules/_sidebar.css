@@ -1,0 +1,17 @@
+.sidebar {
+    transition: 0.2s all swing;
+
+    position : fixed;
+    z-index  : $sidebarZ;
+    top      : $primary-navH;
+    left     : 0;
+    height   : calc(100% - $primary-navH);
+
+    background : $sidebar-color;
+    color      : $sidebar-text;
+    width      : $sidebarW;
+
+    margin-right: $sidebarW;
+    &--open { margin-right: 0 };
+
+}
