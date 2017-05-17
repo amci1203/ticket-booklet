@@ -1,0 +1,21 @@
+/*
+    THIS IS A BASE MODULE
+    INDIVIDUAL STYLES MUST BE APPLIED TO COMPONENTS/MODULES
+*/
+
+@media only print {
+    .primary-nav,
+    .sidebar { 
+        display: none
+    }
+    
+    .content {
+        background: #FFF;
+        margin    : 0 auto;
+        padding   : 40px 32px;
+        font-size : 14px;
+        color     : #111;
+        width     : 612px;
+        height    : 920px;
+    }
+}
