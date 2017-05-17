@@ -21,7 +21,7 @@
     $brand-danger  : rgb(217, 83, 79);
 
     /* CUSTOM COLORS */
-    $mainBlue   : rgb(40, 171, 197);
+    $mainBlue   : rgb(35, 70, 220);
     $mainYellow : rgb(253, 188, 0);
     $mainOrange : rgb(213, 149, 65);
 
@@ -51,6 +51,9 @@
 /* MISC. MODULES CONFIG END */
 
 /* COMPONENTS */
+    /* WRAPPER */
+    $wrapper-padding: 18px;
+
     /* BUTTONS */
     $btn-font-size : 1rem;
     $btn-vPadding  : 0.75rem;
@@ -74,7 +77,7 @@
     $navs-active  : $navs-hover;
 
     /* SIDEBAR */
-    $sidebarW: 300px;
+    $sidebarW: 400px;
     $sidebar-color: $mainBlue;
     $sidebar-text: $white;
 
@@ -83,6 +86,10 @@
     $navs-current-text : $navs-text;
     $navs-active-text  : $navs-text;
 
+    /* MAIN */
+    $mainW       : calc(100% - $sidebarW - $wrapper-padding * 2);
+    $main-margin : calc($sidebarW + 2rem);
+        
     /* FOOTER */
     $footer-color : $navs-color;
     $footer-text  : $navs-text;
@@ -108,6 +115,3 @@
     $testimonial-bg       : color($white a(0.75));
     $testimonial-title    : $brand-primary;
     $testimonial-subtitle : $brand-info;
-
-    /* WRAPPER */
-    $wrapper-padding: 18px;

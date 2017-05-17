@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='app'>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>My Skeleton</title>
-    <meta name="theme-color" content="#1bb8e8" />
+    <title>Ticket Booklet</title>
+    <base href='/' />
+    <meta name="theme-color" content="#1b28FF" />
     <!--  build:css assets/css/styles.css  -->
     <link rel='stylesheet' href='styles.css' type='text/css' />
     <!--  endbuild  -->
@@ -12,13 +13,8 @@
     <!--  build:js assets/js/vendor.js -->
     <script src='temp/js/vendor.js'></script>
     <!--  endbuild -->
-    <nav class="primary-nav"></nav>
-    <nav class="sidebar">
-        <ul id="locations">
-
-        </ul>
-    </nav>
-    <main id="inventory-panel"></main>
+    
+    <div ui-view id='main-content'></div>
 
     <!--  build:js assets/js/app.js -->
     <script src='temp/js/app.js'></script>

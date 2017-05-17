@@ -5,6 +5,9 @@
 @import 'base/global';
 /* GLOBAL FILES END */
 
+/* COMPOENTS */
+    @import 'components/ticket';
+
 /* MODULES */
     /* MULTIPLE USE BLOCKS */
     @import 'modules/btn';
@@ -17,6 +20,7 @@
     @import 'modules/modal';
     @import 'modules/page-section';
     @import 'modules/photo';
+    @import 'modules/print';
     @import 'modules/reveal-item';
     @import 'modules/row';
     @import 'modules/section-title';

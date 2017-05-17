@@ -18,6 +18,10 @@ img {
     height    : auto;
 }
 
+main {
+    margin-left: $main-margin;
+}
+
 .invisible { visibility : hidden }
 .hide      { display    : none   }
 

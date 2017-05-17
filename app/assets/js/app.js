@@ -1,19 +1,50 @@
-import $ from 'jquery';
+import 'angular';
+import '@uirouter/angularjs';
 
-import Injector          from './modules/Injector';
+//imports
 
-import MobileMenu         from './modules/MobileMenu';
-import ScrollSpy          from './modules/ScrollSpy';
-import StickyHeader       from './modules/StickyHeader';
-import Inventory          from './modules/Inventory';
-import FullScreenSection  from './modules/FullScreenSection';
+    // CORE
 
-function init () {
-//    MobileMenu();
-//    ScrollSpy();
-//    StickyHeader(true);
+    // BOOKLET
+    import './booklet/service';
+    import './booklet/controller';
 
-    Inventory();
-}
+    const dependencies = [
+        // CORE
+        'ui.router',
+        // BOOKLET
+        'booklet-service',
+        'booklet-controller',
+    ];
 
-$(document).ready(Injector.bind(window, init))
+// ROUTING
+
+(app => {
+    
+    app.config(function ($httpProvider, $stateProvider, $urlRouterProvider, $locationProvider) {
+//        $httpProvider.interceptors.push('Interceptor');
+        $urlRouterProvider.otherwise('/');
+        
+        $stateProvider.state('home', {
+            url: '/',
+            templateUrl: '/views/booklet.html',
+            controller: 'Booklet',
+            controllerAs: 'booklet',
+            resolve: {
+                locations: Booklet => Booklet.getLocations(),
+                tickets: Booklet => Booklet.getTicketNames()
+            }
+        });
+        
+//        $stateProvider.state('login', {
+//            url: '/',
+//            templateUrl: '',
+//            controller: '',
+//            controllerAs: ''
+//        });
+        
+        //SET HTML5 MODE TO TRUE
+        $locationProvider.html5Mode(true);
+    });
+    
+})(angular.module('app', dependencies))

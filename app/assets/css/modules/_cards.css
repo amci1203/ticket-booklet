@@ -1,8 +1,16 @@
 .cards {
     margin:  0;
     padding: 0;
+
     &.checklist li { @mixin clickable }
-    & > * {
+    
+    & > .heading {
+        border-bottom: 1px solid $cards-border;
+        text-shadow: 1px 2px 1px $lighter-gray;
+        box-shadow: 5px 2px 1px color($dark-gray a(0.5));
+    }
+    
+    & > *:not(.heading) {
         position: relative;
         float: none;
         margin: 20px auto;
@@ -14,7 +22,7 @@
         text-align: center;
         font-size: 1.25rem;
         @mixin atMedium {
-            padding: 35px 50px;
+            padding: 15px 30px;
             text-align: left;
         }
         .qty {
