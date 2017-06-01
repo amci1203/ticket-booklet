@@ -33,19 +33,6 @@
 </section>
 
 <main id='ticket-booklet' class="content">
-   
-    
-    <section ng-show='!booklet.state.printView'>
-        
-        
-        <img id='display-ticket' 
-            ng-if='booklet.ticketURL'
-            src='{{booklet.ticketURL}}'
-            alt='SORRY THAT TICKET CAN&apos;T BE FOUND'
-        />
-        
-        
-    </section>
     
     <section class="print-view" ng-if='booklet.state.printView'>
         
